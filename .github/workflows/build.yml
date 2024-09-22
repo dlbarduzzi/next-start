@@ -21,11 +21,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "npm"
 
       - name: Install dependencies
         run: npm install
 
       - name: Run lint
+        env:
+          NEXT_PUBLIC_BASE_URL: "http://localhost:3000"
         run: npm run lint
 
   format:
@@ -42,6 +45,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "npm"
 
       - name: Install dependencies
         run: npm install
@@ -63,9 +67,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "npm"
 
       - name: Install dependencies
         run: npm install
 
       - name: Run build
+        env:
+          NEXT_PUBLIC_BASE_URL: "http://localhost:3000"
         run: npm run build
